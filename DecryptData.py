@@ -1,7 +1,8 @@
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 from base64 import b64decode
-'''from Data import get_data_from_api'''
+
+#giải mã data
 
 def decrypt_aes(data, key):
     key = key.encode('utf-8')[:32]

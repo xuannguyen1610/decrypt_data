@@ -1,9 +1,11 @@
+# tạo 1 sheet mới với cột là date và các user ID sau đó dùng code này để ra được 1 file mới chứa date và từng user id
+
 import pandas as pd
 
 # Đường dẫn đến file Excel của bạn
-#file_path = r"C:\Users\Admin\PycharmProjects\decrypt_data\use_t9_2023_tech.xlsx"
+#file_path = r"C:\Users\Admin\PycharmProjects\decrypt_data\use_08_10_2023_tech.xlsx"
 
-file_path = r"C:\Users\Admin\PycharmProjects\decrypt_data\use_t9_2023_take.xlsx"
+file_path = r"C:\Users\Admin\PycharmProjects\decrypt_data\use_08_10_2023_take.xlsx"
 
 # Đọc dữ liệu từ file Excel vào DataFrame
 df = pd.read_excel(file_path,sheet_name="Sheet3")
@@ -22,5 +24,5 @@ for _, row in df.iterrows():
 		new_df = pd.concat([new_df, pd.DataFrame.from_records([new_row], columns=['date', 'userIds'])],ignore_index=True)
 
 # Ghi DataFrame mới vào file Excel
-new_file_path = '30-09_take.xlsx'
+new_file_path = '12-10_take.xlsx'
 new_df.to_excel(new_file_path, index=False)
