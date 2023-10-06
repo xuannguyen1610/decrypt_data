@@ -1,21 +1,23 @@
-import requests
+'''import requests
 
 def get_data_from_api():
     url = 'https://api.takeprofit.vn/admin/credit/aggregate/route/active-users-by-date-range'
     headers = {
-        'Content-Type': 'application/json',
-        'X-Authorization': '',
-        'Authorization': 'Bearer keyb70Fect3eWx2tY'
+        'Content-Type': 'application/json'
     }
     data = {
-        "fromDate": "2023-06-27 00:00:00",
-        "toDate": "2023-06-29 00:00:00"
+        "fromDate": "2023-07-01 00:00:00",
+        "toDate": "2023-07-28 00:00:00",
+        "domain": "api.takeprofit.vn"
     }
 
     response = requests.post(url, headers=headers, json=data)
 
     if response.status_code == 200:
+        # The request was successful
         data = response.json()
-        return data['data']
+        print(data)
     else:
-        return response.status_code
+        print(f"Failed to fetch data. Status code: {response.status_code}")
+
+print(get_data_from_api())'''

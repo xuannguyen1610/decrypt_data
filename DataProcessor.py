@@ -1,13 +1,15 @@
 import pandas as pd
 from DecryptData import decrypt_aes
-from Data import get_data_from_api
 
-encrypted_data = get_data_from_api()
 key = '5u8x/A?D(G+KbPeShVmYq3s6v9y$B&E)'
 
-decrypted_data = decrypt_aes(encrypted_data, key)
+# Read encrypted data from the text file
+with open(r"C:\Users\Admin\PycharmProjects\decrypt_data\encrypted_data.txt", "r") as file:
+    encrypted_data = file.read()
 
-result_data = eval(decrypted_data[:-1])
+decrypted_data = decrypt_aes(encrypted_data, key)
+#print(decrypted_data)
+result_data = eval(decrypted_data[:-4])
 
 df_new = pd.DataFrame(result_data)
 
@@ -15,6 +17,5 @@ df_new = pd.DataFrame(result_data)
 columns_order = ["date", "route", "userIds"]
 df_new = df_new[columns_order]
 
-
 # Ghi dữ liệu mới vào file Excel
-df_new.to_excel("use_28_06_2023_2.xlsx", index=False)
+df_new.to_excel("use_03_10_2023_take.xlsx", index=False)
